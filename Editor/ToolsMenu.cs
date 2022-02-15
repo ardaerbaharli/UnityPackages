@@ -114,7 +114,7 @@ namespace ardaerbaharli
         {
             var url = GetGistUrl("b548d42ffb2145198e57912a7bb1d0d3");
             var contents = await GetContents(url);
-            CreateScriptFile("TransformExtensions", contents, "Extensions");
+            CreateScriptFileWDir("TransformExtensions", contents, "Extensions");
         }
 
         [MenuItem("Tools/Extension Methods/Load GameObject Extensions")]
@@ -122,7 +122,7 @@ namespace ardaerbaharli
         {
             var url = GetGistUrl("26fb6f529b9270328d968bae2096712e");
             var contents = await GetContents(url);
-            CreateScriptFile("GameObjectExtensions", contents, "Extensions");
+            CreateScriptFileWDir("GameObjectExtensions", contents, "Extensions");
         }
 
         [MenuItem("Tools/Extension Methods/Load Float Extensions")]
@@ -130,7 +130,7 @@ namespace ardaerbaharli
         {
             var url = GetGistUrl("50cc7923690080e08d130b236051fda3");
             var contents = await GetContents(url);
-            CreateScriptFile("FloatExtensions", contents, "Extensions");
+            CreateScriptFileWDir("FloatExtensions", contents, "Extensions");
         }
 
         [MenuItem("Tools/Extension Methods/Load String Extensions")]
@@ -138,7 +138,7 @@ namespace ardaerbaharli
         {
             var url = GetGistUrl("3704403725b2fce34b3a7eb449f18d4e");
             var contents = await GetContents(url);
-            CreateScriptFile("StringExtensions", contents, "Extensions");
+            CreateScriptFileWDir("StringExtensions", contents, "Extensions");
         }
         
         [MenuItem("Tools/Extension Methods/Load Image Extensions")]
@@ -146,7 +146,7 @@ namespace ardaerbaharli
         {
             var url = GetGistUrl("e225b6c6efd4fafd52fecf9b4c226a30");
             var contents = await GetContents(url);
-            CreateScriptFile("ImageExtensions", contents, "Extensions");
+            CreateScriptFileWDir("ImageExtensions", contents, "Extensions");
         }
 
         
@@ -181,10 +181,10 @@ namespace ardaerbaharli
             Refresh();
         }
 
-        static void CreateScriptFile(string fileName, string contents, params string[] dir)
+        static void CreateScriptFileWDir(string fileName, string contents, params string[] dir)
         {
             string root;
-            root = Combine(dataPath, "_Project", "Scripts");
+            root = Combine(dataPath, "Scripts");
             foreach (var newDirectory in dir)
             {
                 root = Combine(root, newDirectory);
