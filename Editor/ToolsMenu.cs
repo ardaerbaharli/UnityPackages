@@ -15,7 +15,7 @@ namespace ardaerbaharli
         [MenuItem("Tools/Setup/Create default folders")]
         static void CreatseDefaultFolders()
         {
-            Dir("_Project", "Scripts", "Art", "Scenes", "Prefabs");
+            Dir( "Scripts", "Art", "Scenes", "Prefabs");
             Refresh();
         }
 
@@ -105,6 +105,8 @@ namespace ardaerbaharli
             LoadGameObjectExtensionsScript();
             LoadFloatExtensionsScript();
             LoadTransformExtensionsScript();
+            LoadStringExtensionsScript();
+            LoadImageExtensionsScript();
         }
 
         [MenuItem("Tools/Extension Methods/Load Transform Extensions")]
@@ -131,10 +133,32 @@ namespace ardaerbaharli
             CreateScriptFile("FloatExtensions", contents, "Extensions");
         }
 
-        static void Dir(string root, params string[] dir)
+        [MenuItem("Tools/Extension Methods/Load String Extensions")]
+        static async void LoadStringExtensionsScript()
+        {
+            var url = GetGistUrl("3704403725b2fce34b3a7eb449f18d4e");
+            var contents = await GetContents(url);
+            CreateScriptFile("StringExtensions", contents, "Extensions");
+        }
+        
+        [MenuItem("Tools/Extension Methods/Load Image Extensions")]
+        static async void LoadImageExtensionsScript()
+        {
+            var url = GetGistUrl("e225b6c6efd4fafd52fecf9b4c226a30");
+            var contents = await GetContents(url);
+            CreateScriptFile("ImageExtensions", contents, "Extensions");
+        }
+
+        
+        static void DirWRoot(string root, params string[] dir)
         {
             foreach (var newDirectory in dir)
                 CreateDirectory(Combine(dataPath, root, newDirectory));
+        }
+        static void Dir(params string[] dir)
+        {
+            foreach (var newDirectory in dir)
+                CreateDirectory(Combine(dataPath, newDirectory));
         }
 
         static string GetGistUrl(string id, string user = "ardaerbaharli") =>
@@ -152,7 +176,7 @@ namespace ardaerbaharli
 
         static void CreateScriptFile(string fileName, string contents)
         {
-            var path = Combine(dataPath, "_Project", "Scripts", $"{fileName}.cs");
+            var path = Combine(dataPath, "Scripts", $"{fileName}.cs");
             File.WriteAllText(path, contents);
             Refresh();
         }
