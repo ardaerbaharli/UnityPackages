@@ -8,17 +8,10 @@ using static UnityEngine.Application;
 using static UnityEditor.AssetDatabase;
 
 
-namespace ardaerbaharli
+namespace Editor
 {
     public static class ToolsMenu
     {
-        [MenuItem("Tools/Setup/Create default folders")]
-        static void CreatseDefaultFolders()
-        {
-            Dir( "Scripts", "Art", "Scenes", "Prefabs");
-            Refresh();
-        }
-
         [MenuItem("Tools/Scripts/Load Helper Functions")]
         static async void LoadHelperFunctionsScript()
         {
@@ -100,13 +93,14 @@ namespace ardaerbaharli
         }
 
         [MenuItem("Tools/Extension Methods/Load All Extensions")]
-        static async void LoadAllExtensionsScripts()
+        static void LoadAllExtensionsScripts()
         {
             LoadGameObjectExtensionsScript();
             LoadFloatExtensionsScript();
             LoadTransformExtensionsScript();
             LoadStringExtensionsScript();
             LoadImageExtensionsScript();
+            LoadListExtensionsScript();
         }
 
         [MenuItem("Tools/Extension Methods/Load Transform Extensions")]
@@ -114,7 +108,7 @@ namespace ardaerbaharli
         {
             var url = GetGistUrl("b548d42ffb2145198e57912a7bb1d0d3");
             var contents = await GetContents(url);
-            CreateScriptFileWDir("TransformExtensions", contents, "Extensions");
+            CreateScriptFile("TransformExtensions", contents, "Extensions");
         }
 
         [MenuItem("Tools/Extension Methods/Load GameObject Extensions")]
@@ -122,7 +116,7 @@ namespace ardaerbaharli
         {
             var url = GetGistUrl("26fb6f529b9270328d968bae2096712e");
             var contents = await GetContents(url);
-            CreateScriptFileWDir("GameObjectExtensions", contents, "Extensions");
+            CreateScriptFile("GameObjectExtensions", contents, "Extensions");
         }
 
         [MenuItem("Tools/Extension Methods/Load Float Extensions")]
@@ -130,7 +124,7 @@ namespace ardaerbaharli
         {
             var url = GetGistUrl("50cc7923690080e08d130b236051fda3");
             var contents = await GetContents(url);
-            CreateScriptFileWDir("FloatExtensions", contents, "Extensions");
+            CreateScriptFile("FloatExtensions", contents, "Extensions");
         }
 
         [MenuItem("Tools/Extension Methods/Load String Extensions")]
@@ -138,27 +132,23 @@ namespace ardaerbaharli
         {
             var url = GetGistUrl("3704403725b2fce34b3a7eb449f18d4e");
             var contents = await GetContents(url);
-            CreateScriptFileWDir("StringExtensions", contents, "Extensions");
+            CreateScriptFile("StringExtensions", contents, "Extensions");
         }
-        
+
         [MenuItem("Tools/Extension Methods/Load Image Extensions")]
         static async void LoadImageExtensionsScript()
         {
             var url = GetGistUrl("e225b6c6efd4fafd52fecf9b4c226a30");
             var contents = await GetContents(url);
-            CreateScriptFileWDir("ImageExtensions", contents, "Extensions");
+            CreateScriptFile("ImageExtensions", contents, "Extensions");
         }
-
         
-        static void DirWRoot(string root, params string[] dir)
+        [MenuItem("Tools/Extension Methods/Load List Extensions")]
+        static async void LoadListExtensionsScript()
         {
-            foreach (var newDirectory in dir)
-                CreateDirectory(Combine(dataPath, root, newDirectory));
-        }
-        static void Dir(params string[] dir)
-        {
-            foreach (var newDirectory in dir)
-                CreateDirectory(Combine(dataPath, newDirectory));
+            var url = GetGistUrl("d1cdc6a1f0c83ac65faf82acdaeb40c7");
+            var contents = await GetContents(url);
+            CreateScriptFile("ListExtensions", contents, "Extensions");
         }
 
         static string GetGistUrl(string id, string user = "ardaerbaharli") =>
@@ -181,7 +171,7 @@ namespace ardaerbaharli
             Refresh();
         }
 
-        static void CreateScriptFileWDir(string fileName, string contents, params string[] dir)
+        static void CreateScriptFile(string fileName, string contents, params string[] dir)
         {
             string root;
             root = Combine(dataPath, "Scripts");
