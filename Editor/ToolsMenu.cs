@@ -110,11 +110,11 @@ namespace Editor
         [MenuItem("Tools/Scripts/Others/Load Vibration and Native")]
         static async void LoadVibrationAndNativeScripts()
         {
-            var url = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Vibration",".cs");
+            var url = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Vibration","cs");
             var contents = await GetContents(url);
             CreateScriptFile("Vibration", contents);
             
-            var url2 = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Native",".cs");
+            var url2 = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Native","cs");
             var contents2 = await GetContents(url2);
             CreateScriptFile("Native", contents2);
         }
@@ -231,6 +231,17 @@ namespace Editor
             var url = GetGistUrl("ca1b74784200f8991a559cbac7f36df0");
             var contents = await GetContents(url);
             CreateScriptFile("ToggleSwitch", contents);
+        }  
+        [MenuItem("Tools/Scripts/UI Elements/Load Range Slider")]
+        static async void LoadRangeSliderScript()
+        {
+            var url = GetGistUrl("592ce9f3b18c4cbba9fd6b2961801174","RangeSlider","cs");
+            var contents = await GetContents(url);
+            CreateScriptFile("RangeSlider", contents);
+            
+            var url2 = GetGistUrl("592ce9f3b18c4cbba9fd6b2961801174","SliderHandle","cs");
+            var contents2 = await GetContents(url2);
+            CreateScriptFile("SliderHandle", contents2);
         }
         
         [MenuItem("Tools/Scripts/UI Elements/Load Display FPS")]
