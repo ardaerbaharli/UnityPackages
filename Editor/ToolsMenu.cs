@@ -189,7 +189,7 @@ namespace Editor
         #region Helpers
         static string GetGistUrl(string id, string user = "ardaerbaharli") =>
             $"https://gist.github.com/{user}/{id}/raw";
-        static string GetGistUrl(string id,string scriptName, string fileExtension string user = "ardaerbaharli") =>
+        static string GetGistUrl(string id, string scriptName, string fileExtension,string user = "ardaerbaharli") =>
             $"https://gist.github.com/{user}/{id}/raw/{scriptName}.{fileExtension}";
 
         static async Task<string> GetContents(string url)
