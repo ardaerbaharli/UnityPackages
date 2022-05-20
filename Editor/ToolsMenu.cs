@@ -1,18 +1,18 @@
-#IF UNITY_EDITOR 
+#if UNITY_EDITOR  
+        
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEditor;
 using static System.IO.Directory;
+using static UnityEditor.AssetDatabase;
 using static System.IO.Path;
 using static UnityEngine.Application;
-using static UnityEditor.AssetDatabase;
-
-
 namespace Editor
 {
     public static class ToolsMenu
     {
+
         #region Scripts
 
         [MenuItem("Tools/Scripts/Others/Load Helpers")]
@@ -261,6 +261,7 @@ namespace Editor
             CreateScriptFile("LoadingScreenManager", contents);
         }
         #endregion
+
 
     }
 }
