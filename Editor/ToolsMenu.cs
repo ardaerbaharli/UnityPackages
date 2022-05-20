@@ -31,7 +31,7 @@ namespace Editor
         }
         
         [MenuItem("Tools/Scripts/Load ArdaTween")]
-        static async void LoadiTweenScript()
+        static async void LoadArdaTweenScript()
         {
             var url = GetGistUrl("8291c7c970dbd00db9037a015f233730");
             var contents = await GetContents(url);
@@ -108,7 +108,7 @@ namespace Editor
         }
         
         [MenuItem("Tools/Scripts/Load Vibration and Native")]
-        static async void LoadListExtensionsScript()
+        static async void LoadVibrationAndNativeScripts()
         {
             var url = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Vibration",".cs");
             var contents = await GetContents(url);
@@ -189,7 +189,7 @@ namespace Editor
         #region Helpers
         static string GetGistUrl(string id, string user = "ardaerbaharli") =>
             $"https://gist.github.com/{user}/{id}/raw";
-        static string GetGistUrl(string id, string user = "ardaerbaharli",string scriptName,string fileExtension) =>
+        static string GetGistUrl(string id,string scriptName, string fileExtension string user = "ardaerbaharli") =>
             $"https://gist.github.com/{user}/{id}/raw/{scriptName}.{fileExtension}";
 
         static async Task<string> GetContents(string url)
