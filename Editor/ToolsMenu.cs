@@ -14,7 +14,7 @@ namespace Editor
     {
         #region Scripts
 
-        [MenuItem("Tools/Scripts/Load Helpers")]
+        [MenuItem("Tools/Scripts/Others/Load Helpers")]
         static async void LoadHelperFunctionsScript()
         {
             var url = GetGistUrl("c07619ecc1844e8101060572947e452c");
@@ -22,7 +22,7 @@ namespace Editor
             CreateScriptFile("Helpers", contents);
         }
 
-        [MenuItem("Tools/Scripts/Load PlayerPrefsX")]
+        [MenuItem("Tools/Scripts/Others/Load PlayerPrefsX")]
         static async void LoadPlayerPrefsXScript()
         {
             var url = GetGistUrl("73305515e58b98cd2ad070ca72ee8895");
@@ -30,7 +30,7 @@ namespace Editor
             CreateScriptFile("PlayerPrefsX", contents);
         }
         
-        [MenuItem("Tools/Scripts/Load ArdaTween")]
+        [MenuItem("Tools/Scripts/Others/Load ArdaTween")]
         static async void LoadArdaTweenScript()
         {
             var url = GetGistUrl("8291c7c970dbd00db9037a015f233730");
@@ -38,7 +38,7 @@ namespace Editor
             CreateScriptFile("ArdaTween", contents);
         }  
         
-        [MenuItem("Tools/Scripts/Load iTween")]
+        [MenuItem("Tools/Scripts/Others/Load iTween")]
         static async void LoadiTweenScript()
         {
             var url = GetGistUrl("5ab971d7c1332942763c04d279814268");
@@ -46,7 +46,7 @@ namespace Editor
             CreateScriptFile("iTween", contents);
         }
 
-        [MenuItem("Tools/Scripts/Load Scene Controller")]
+        [MenuItem("Tools/Scripts/Others/Load Scene Controller")]
         static async void LoadSceneControllerScript()
         {
             var url = GetGistUrl("1552f8b8e4ab26136892c38d135f2391");
@@ -54,7 +54,7 @@ namespace Editor
             CreateScriptFile("SceneController", contents);
         }
 
-        [MenuItem("Tools/Scripts/Load Screenshot")]
+        [MenuItem("Tools/Scripts/Others/Load Screenshot")]
         static async void LoadScreenshotScript()
         {
             var url = GetGistUrl("7368c8e45635d948b8b9d381160f8b2e");
@@ -62,7 +62,7 @@ namespace Editor
             CreateScriptFile("Screenshot", contents);
         }
 
-        [MenuItem("Tools/Scripts/Load Admob Controller")]
+        [MenuItem("Tools/Scripts/Others/Load Admob Controller")]
         static async void LoadAdmobControllerScript()
         {
             var url = GetGistUrl("ee2a8d89c679af08d120c6b3fd923931");
@@ -70,14 +70,14 @@ namespace Editor
             CreateScriptFile("AdmobController", contents);
         }
 
-        [MenuItem("Tools/Scripts/Load Vibration")]
+        [MenuItem("Tools/Scripts/Others/Load Vibration")]
         static async void LoadVibrationScript()
         {
             var url = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0");
             var contents = await GetContents(url);
             CreateScriptFile("Vibration", contents);
         }
-        [MenuItem("Tools/Scripts/Load Input Manager")]
+        [MenuItem("Tools/Scripts/Others/Load Input Manager")]
         static async void LoadInputManagerScript()
         {
             var url = GetGistUrl("4ed9fa5fdaf64c2b5876117b140578e1");
@@ -85,21 +85,21 @@ namespace Editor
             CreateScriptFile("InputManager", contents);
         }
         
-        [MenuItem("Tools/Scripts/Load Shake Camera")]
+        [MenuItem("Tools/Scripts/Others/Load Shake Camera")]
         static async void LoadShakeCameraScript()
         {
             var url = GetGistUrl("2ef7a75196218a762385628395b8b6c7");
             var contents = await GetContents(url);
             CreateScriptFile("ShakeCamera", contents);
         } 
-        [MenuItem("Tools/Scripts/Load Object Pool")]
+        [MenuItem("Tools/Scripts/Others/Load Object Pool")]
         static async void LoadObjectPoolScript()
         {
             var url = GetGistUrl("d8cce8d8869f8ec4f56b555bb85d9e9a");
             var contents = await GetContents(url);
             CreateScriptFile("ObjectPool", contents);
         }
-        [MenuItem("Tools/Scripts/Load Dragger")]
+        [MenuItem("Tools/Scripts/Others/Load Dragger")]
         static async void LoadDraggerScript()
         {
             var url = GetGistUrl("ce5cf10376ea6d7e15061717fb94dd51");
@@ -107,7 +107,7 @@ namespace Editor
             CreateScriptFile("Dragger", contents);
         }
         
-        [MenuItem("Tools/Scripts/Load Vibration and Native")]
+        [MenuItem("Tools/Scripts/Others/Load Vibration and Native")]
         static async void LoadVibrationAndNativeScripts()
         {
             var url = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Vibration",".cs");
