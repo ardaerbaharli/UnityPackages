@@ -100,7 +100,7 @@ namespace Editor
             CreateScriptFile("ObjectPool", contents);
         }
         [MenuItem("Tools/Scripts/Load Dragger")]
-        static async void LoadObjectPoolScript()
+        static async void LoadDraggerScript()
         {
             var url = GetGistUrl("ce5cf10376ea6d7e15061717fb94dd51");
             var contents = await GetContents(url);
@@ -114,9 +114,9 @@ namespace Editor
             var contents = await GetContents(url);
             CreateScriptFile("Vibration", contents);
             
-            var url = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Native",".cs");
-            var contents = await GetContents(url);
-            CreateScriptFile("Native", contents);
+            var url2 = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Native",".cs");
+            var contents2 = await GetContents(url2);
+            CreateScriptFile("Native", contents2);
         }
         
         #endregion
@@ -194,12 +194,10 @@ namespace Editor
 
         static async Task<string> GetContents(string url)
         {
-            using (var client = new HttpClient())
-            {
-                var response = await client.GetAsync(url);
-                var content = await response.Content.ReadAsStringAsync();
-                return content;
-            }
+            using var client = new HttpClient();
+            var response = await client.GetAsync(url);
+            var content = await response.Content.ReadAsStringAsync();
+            return content;
         }
         static void CreateScriptFile(string fileName, string contents)
         {
@@ -210,8 +208,7 @@ namespace Editor
 
         static void CreateScriptFile(string fileName, string contents, params string[] dir)
         {
-            string root;
-            root = Combine(dataPath, "Scripts");
+            var root = Combine(dataPath, "Scripts");
             foreach (var newDirectory in dir)
             {
                 root = Combine(root, newDirectory);
