@@ -12,7 +12,9 @@ namespace Editor
 {
     public static class ToolsMenu
     {
-        [MenuItem("Tools/Scripts/Load Helper Functions")]
+        #region Scripts
+
+        [MenuItem("Tools/Scripts/Load Helpers")]
         static async void LoadHelperFunctionsScript()
         {
             var url = GetGistUrl("c07619ecc1844e8101060572947e452c");
@@ -27,15 +29,15 @@ namespace Editor
             var contents = await GetContents(url);
             CreateScriptFile("PlayerPrefsX", contents);
         }
-
-        [MenuItem("Tools/Scripts/Load Toggle Switch")]
-        static async void LoadToggleSwitchScript()
+        
+        [MenuItem("Tools/Scripts/Load ArdaTween")]
+        static async void LoadiTweenScript()
         {
-            var url = GetGistUrl("ca1b74784200f8991a559cbac7f36df0");
+            var url = GetGistUrl("8291c7c970dbd00db9037a015f233730");
             var contents = await GetContents(url);
-            CreateScriptFile("ToggleSwitch", contents);
-        }
-
+            CreateScriptFile("ArdaTween", contents);
+        }  
+        
         [MenuItem("Tools/Scripts/Load iTween")]
         static async void LoadiTweenScript()
         {
@@ -75,22 +77,51 @@ namespace Editor
             var contents = await GetContents(url);
             CreateScriptFile("Vibration", contents);
         }
-
-        [MenuItem("Tools/Scripts/Load Display FPS")]
-        static async void LoadDisplayFPSScript()
+        [MenuItem("Tools/Scripts/Load Input Manager")]
+        static async void LoadInputManagerScript()
         {
-            var url = GetGistUrl("1c783f1c6a2df7b39c7832e983f118c6");
+            var url = GetGistUrl("4ed9fa5fdaf64c2b5876117b140578e1");
             var contents = await GetContents(url);
-            CreateScriptFile("DisplayFPS", contents);
+            CreateScriptFile("InputManager", contents);
         }
-
-        [MenuItem("Tools/Scripts/Load Loading Screen")]
-        static async void LoadLoadingScreenScript()
+        
+        [MenuItem("Tools/Scripts/Load Shake Camera")]
+        static async void LoadShakeCameraScript()
         {
-            var url = GetGistUrl("acf22314b3371f1e5bec7b6148842f43");
+            var url = GetGistUrl("2ef7a75196218a762385628395b8b6c7");
             var contents = await GetContents(url);
-            CreateScriptFile("LoadingScreenManager", contents);
+            CreateScriptFile("ShakeCamera", contents);
+        } 
+        [MenuItem("Tools/Scripts/Load Object Pool")]
+        static async void LoadObjectPoolScript()
+        {
+            var url = GetGistUrl("d8cce8d8869f8ec4f56b555bb85d9e9a");
+            var contents = await GetContents(url);
+            CreateScriptFile("ObjectPool", contents);
         }
+        [MenuItem("Tools/Scripts/Load Dragger")]
+        static async void LoadObjectPoolScript()
+        {
+            var url = GetGistUrl("ce5cf10376ea6d7e15061717fb94dd51");
+            var contents = await GetContents(url);
+            CreateScriptFile("Dragger", contents);
+        }
+        
+        [MenuItem("Tools/Scripts/Load Vibration and Native")]
+        static async void LoadListExtensionsScript()
+        {
+            var url = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Vibration",".cs");
+            var contents = await GetContents(url);
+            CreateScriptFile("Vibration", contents);
+            
+            var url = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Native",".cs");
+            var contents = await GetContents(url);
+            CreateScriptFile("Native", contents);
+        }
+        
+        #endregion
+
+        #region Extension Methods
 
         [MenuItem("Tools/Extension Methods/Load All Extensions")]
         static void LoadAllExtensionsScripts()
@@ -151,8 +182,15 @@ namespace Editor
             CreateScriptFile("ListExtensions", contents, "Extensions");
         }
 
+        #endregion
+        
+       
+
+        #region Helpers
         static string GetGistUrl(string id, string user = "ardaerbaharli") =>
             $"https://gist.github.com/{user}/{id}/raw";
+        static string GetGistUrl(string id, string user = "ardaerbaharli",string scriptName,string fileExtension) =>
+            $"https://gist.github.com/{user}/{id}/raw/{scriptName}.{fileExtension}";
 
         static async Task<string> GetContents(string url)
         {
@@ -163,7 +201,6 @@ namespace Editor
                 return content;
             }
         }
-
         static void CreateScriptFile(string fileName, string contents)
         {
             var path = Combine(dataPath, "Scripts", $"{fileName}.cs");
@@ -185,5 +222,36 @@ namespace Editor
             File.WriteAllText(path, contents);
             Refresh();
         }
+        
+        #endregion
+
+        #region UI Elements
+        
+
+        [MenuItem("Tools/Scripts/UI Elements/Load Toggle Switch")]
+        static async void LoadToggleSwitchScript()
+        {
+            var url = GetGistUrl("ca1b74784200f8991a559cbac7f36df0");
+            var contents = await GetContents(url);
+            CreateScriptFile("ToggleSwitch", contents);
+        }
+        
+        [MenuItem("Tools/Scripts/UI Elements/Load Display FPS")]
+        static async void LoadDisplayFPSScript()
+        {
+            var url = GetGistUrl("1c783f1c6a2df7b39c7832e983f118c6");
+            var contents = await GetContents(url);
+            CreateScriptFile("DisplayFPS", contents);
+        }
+
+        [MenuItem("Tools/Scripts/UI Elements/Load Loading Screen")]
+        static async void LoadLoadingScreenScript()
+        {
+            var url = GetGistUrl("acf22314b3371f1e5bec7b6148842f43");
+            var contents = await GetContents(url);
+            CreateScriptFile("LoadingScreenManager", contents);
+        }
+        #endregion
+
     }
 }
