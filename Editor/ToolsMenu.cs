@@ -123,7 +123,7 @@ namespace Editor
 
         #region Extension Methods
 
-        [MenuItem("Tools/Extension Methods/Load All Extensions")]
+        [MenuItem("Tools/Scripts/Extension Methods/Load All Extensions")]
         static void LoadAllExtensionsScripts()
         {
             LoadGameObjectExtensionsScript();
@@ -134,7 +134,7 @@ namespace Editor
             LoadListExtensionsScript();
         }
 
-        [MenuItem("Tools/Extension Methods/Load Transform Extensions")]
+        [MenuItem("Tools/Scripts/Extension Methods/Load Transform Extensions")]
         static async void LoadTransformExtensionsScript()
         {
             var url = GetGistUrl("b548d42ffb2145198e57912a7bb1d0d3");
@@ -142,7 +142,7 @@ namespace Editor
             CreateScriptFile("TransformExtensions", contents, "Extensions");
         }
 
-        [MenuItem("Tools/Extension Methods/Load GameObject Extensions")]
+        [MenuItem("Tools/Scripts/Extension Methods/Load GameObject Extensions")]
         static async void LoadGameObjectExtensionsScript()
         {
             var url = GetGistUrl("26fb6f529b9270328d968bae2096712e");
@@ -150,7 +150,7 @@ namespace Editor
             CreateScriptFile("GameObjectExtensions", contents, "Extensions");
         }
 
-        [MenuItem("Tools/Extension Methods/Load Float Extensions")]
+        [MenuItem("Tools/Scripts/Extension Methods/Load Float Extensions")]
         static async void LoadFloatExtensionsScript()
         {
             var url = GetGistUrl("50cc7923690080e08d130b236051fda3");
@@ -158,7 +158,7 @@ namespace Editor
             CreateScriptFile("FloatExtensions", contents, "Extensions");
         }
 
-        [MenuItem("Tools/Extension Methods/Load String Extensions")]
+        [MenuItem("Tools/Scripts/Extension Methods/Load String Extensions")]
         static async void LoadStringExtensionsScript()
         {
             var url = GetGistUrl("3704403725b2fce34b3a7eb449f18d4e");
@@ -166,7 +166,7 @@ namespace Editor
             CreateScriptFile("StringExtensions", contents, "Extensions");
         }
 
-        [MenuItem("Tools/Extension Methods/Load Image Extensions")]
+        [MenuItem("Tools/Scripts/Extension Methods/Load Image Extensions")]
         static async void LoadImageExtensionsScript()
         {
             var url = GetGistUrl("e225b6c6efd4fafd52fecf9b4c226a30");
@@ -174,7 +174,7 @@ namespace Editor
             CreateScriptFile("ImageExtensions", contents, "Extensions");
         }
         
-        [MenuItem("Tools/Extension Methods/Load List Extensions")]
+        [MenuItem("Tools/Scripts/Extension Methods/Load List Extensions")]
         static async void LoadListExtensionsScript()
         {
             var url = GetGistUrl("d1cdc6a1f0c83ac65faf82acdaeb40c7");
