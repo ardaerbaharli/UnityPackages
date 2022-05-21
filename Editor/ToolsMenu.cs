@@ -119,6 +119,18 @@ namespace Editor
             var contents2 = await GetContents(url2);
             CreateScriptFile("Native", contents2);
         }
+       
+        [MenuItem("Tools/Scripts/Others/Load Serializable Dictionary and KeyValuePair")]
+        static async void LoadVibrationAndNativeScripts()
+        {
+            var url = GetGistUrl("eea761fee785b5072a6559a8146f6199","DictionaryUnity","cs");
+            var contents = await GetContents(url);
+            CreateScriptFile("DictionaryUnity", contents);
+            
+            var url2 = GetGistUrl("eea761fee785b5072a6559a8146f6199","KeyValuePairUnity","cs");
+            var contents2 = await GetContents(url2);
+            CreateScriptFile("KeyValuePairUnity", contents2);
+        }
         
         #endregion
 
