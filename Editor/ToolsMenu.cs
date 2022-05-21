@@ -121,7 +121,7 @@ namespace Editor
         }
        
         [MenuItem("Tools/Scripts/Others/Load Serializable Dictionary and KeyValuePair")]
-        static async void LoadVibrationAndNativeScripts()
+        static async void LoadSerializableDictionaryAndKeyValuePairScripts()
         {
             var url = GetGistUrl("eea761fee785b5072a6559a8146f6199","DictionaryUnity","cs");
             var contents = await GetContents(url);
@@ -207,11 +207,13 @@ namespace Editor
 
         static async Task<string> GetContents(string url)
         {
-            using var client = new HttpClient();
+            using (var client = new HttpClient()){
             var response = await client.GetAsync(url);
             var content = await response.Content.ReadAsStringAsync();
             return content;
         }
+
+}
         static void CreateScriptFile(string fileName, string contents)
         {
             var path = Combine(dataPath, "Scripts", $"{fileName}.cs");
