@@ -132,6 +132,21 @@ namespace Editor
             CreateScriptFile("KeyValuePairUnity", contents2);
         }
         
+        [MenuItem("Tools/Scripts/Others/Page Controller")]
+        static async void LoadPageControllerScripts()
+        {
+            var url = GetGistUrl("c818f069c8bf08de05b0de2fd81b5b9f","PageController","cs");
+            var contents = await GetContents(url);
+            CreateScriptFile("PageController", contents);
+            
+            var url2 = GetGistUrl("c818f069c8bf08de05b0de2fd81b5b9f","Pages","cs");
+            var contents2 = await GetContents(url2);
+            CreateScriptFile("Pages", contents2);
+            
+            LoadListExtensionsScript();
+            LoadSerializableDictionaryAndKeyValuePairScripts();
+        }
+        
         #endregion
 
         #region Extension Methods
