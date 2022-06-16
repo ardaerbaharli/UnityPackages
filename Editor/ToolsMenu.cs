@@ -160,12 +160,29 @@ namespace Editor
             CreateScriptFile("ObjectPool", contents);
         }
 
+        [MenuItem("Tools/Scripts/Others/Easing Function")]
+        static async void LoadEasingFunctionScript()
+        {
+            var url = GetGistUrl("3821683f2ba08664596a8cf9cfba8f40");
+            var contents = await GetContents(url);
+            CreateScriptFile("EasingFunction", contents);
+        }
+
+
         [MenuItem("Tools/Scripts/Others/Dragger")]
         static async void LoadDraggerScript()
         {
             var url = GetGistUrl("ce5cf10376ea6d7e15061717fb94dd51");
             var contents = await GetContents(url);
             CreateScriptFile("Dragger", contents);
+        }
+
+        [MenuItem("Tools/Scripts/Others/No Clip Fly")]
+        static async void LoadNoClipFlyScript()
+        {
+            var url = GetGistUrl("53f6d33b2658ec444ea37350146b192d");
+            var contents = await GetContents(url);
+            CreateScriptFile("NoClipFly", contents);
         }
 
         [MenuItem("Tools/Scripts/Others/Sound manager")]
@@ -183,7 +200,7 @@ namespace Editor
             var contents = await GetContents(url);
             CreateScriptFile("SwipeManager", contents);
         }
-        
+
         [MenuItem("Tools/Scripts/Others/Bootstrapper")]
         static async void LoadBootstrapperScript()
         {
@@ -384,7 +401,7 @@ namespace Editor
             var contents2 = await GetContents(url2);
             CreateScriptFile("SliderHandle", contents2);
         }
-
+    
         [MenuItem("Tools/Scripts/UI Elements/Display FPS")]
         static async void LoadDisplayFPSScript()
         {
