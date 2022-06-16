@@ -298,6 +298,8 @@ namespace Editor
             {
                 Directory.CreateDirectory(path);
             }
+            
+            Refresh();
         }
         static void CreateScriptFile(string fileName, string contents)
         {
