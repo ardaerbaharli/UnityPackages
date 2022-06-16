@@ -4,7 +4,6 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEditor;
-using static System.IO.Directory;
 using static UnityEditor.AssetDatabase;
 using static System.IO.Path;
 using static UnityEngine.Application;
@@ -290,17 +289,16 @@ namespace Editor
                 var content = await response.Content.ReadAsStringAsync();
                 return content;
             }
-
-            static void CreateDirectory(string directoryName)
-            {
-                var path = Path.Combine(dataPath, directoryName);
-                if (!Directory.Exists(path))
-                {
-                    Directory.CreateDirectory(path);
-                }
-            }
         }
 
+        static void CreateDirectory(string directoryName)
+        {
+            var path = Path.Combine(dataPath, directoryName);
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+        }
         static void CreateScriptFile(string fileName, string contents)
         {
             var path = Combine(dataPath, "Scripts");
