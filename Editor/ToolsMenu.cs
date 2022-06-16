@@ -167,6 +167,14 @@ namespace Editor
             var contents = await GetContents(url);
             CreateScriptFile("Dragger", contents);
         }
+        
+        [MenuItem("Tools/Scripts/Others/Sound anager")]
+        static async void LoadSoundManagercript()
+        {
+            var url = GetGistUrl("86fc52d4af7e83e08ffae949a67690dc");
+            var contents = await GetContents(url);
+            CreateScriptFile("SoundManager", contents);
+        }
 
         [MenuItem("Tools/Scripts/Others/Vibration and Native")]
         static async void LoadVibrationAndNativeScripts()
