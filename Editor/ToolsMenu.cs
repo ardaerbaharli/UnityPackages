@@ -167,13 +167,29 @@ namespace Editor
             var contents = await GetContents(url);
             CreateScriptFile("Dragger", contents);
         }
-        
-        [MenuItem("Tools/Scripts/Others/Sound anager")]
-        static async void LoadSoundManagercript()
+
+        [MenuItem("Tools/Scripts/Others/Sound manager")]
+        static async void LoadSoundManagerScript()
         {
             var url = GetGistUrl("86fc52d4af7e83e08ffae949a67690dc");
             var contents = await GetContents(url);
             CreateScriptFile("SoundManager", contents);
+        }
+
+        [MenuItem("Tools/Scripts/Others/Swipe Manager")]
+        static async void LoadSwipeManagerScript()
+        {
+            var url = GetGistUrl("e52485fa43fbfa7678d65190c2a58aa0");
+            var contents = await GetContents(url);
+            CreateScriptFile("SwipeManager", contents);
+        }
+        
+        [MenuItem("Tools/Scripts/Others/Bootstrapper")]
+        static async void LoadBootstrapperScript()
+        {
+            var url = GetGistUrl("d5f6f0088b15ec146e942d9e34c1593b");
+            var contents = await GetContents(url);
+            CreateScriptFile("Bootstrapper", contents);
         }
 
         [MenuItem("Tools/Scripts/Others/Vibration and Native")]
