@@ -1,5 +1,5 @@
 #if UNITY_EDITOR
-        
+
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -8,29 +8,70 @@ using static System.IO.Directory;
 using static UnityEditor.AssetDatabase;
 using static System.IO.Path;
 using static UnityEngine.Application;
+
 namespace Editor
 {
     public static class ToolsMenu
     {
-#region Directories
-
+        #region Directories
 
         [MenuItem("Tools/Folders/Create all")]
-        static async void CreateAllDirectories()
+        static void CreateAllDirectories()
         {
-
+            CreateScenesFolder();
+            CreateScriptFolder();
+            CreateSoundsFolder();
+            CreatePrefabsFolder();
+            CreateResourcesFolder();
+            CreateArtFolder();
+            CreateFontsFolder();
         }
 
         [MenuItem("Tools/Folders/Scripts")]
-        static async void CreateScriptFolder()
+        static void CreateScriptFolder()
         {
-CreateDirectory("Scripts");
-        }    
+            CreateDirectory("Scripts");
+        }
 
+        [MenuItem("Tools/Folders/Scenes")]
+        static void CreateScenesFolder()
+        {
+            CreateDirectory("Scenes");
+        }
 
-#endregion
+        [MenuItem("Tools/Folders/Sounds")]
+        static void CreateSoundsFolder()
+        {
+            CreateDirectory("Sounds");
+        }
 
-#region Scripts
+        [MenuItem("Tools/Folders/Prefabs")]
+        static void CreatePrefabsFolder()
+        {
+            CreateDirectory("Prefabs");
+        }
+
+        [MenuItem("Tools/Folders/Resources")]
+        static void CreateResourcesFolder()
+        {
+            CreateDirectory("Resources");
+        }
+
+        [MenuItem("Tools/Folders/Art")]
+        static void CreateArtFolder()
+        {
+            CreateDirectory("Art");
+        }
+
+        [MenuItem("Tools/Folders/Fonts")]
+        static void CreateFontsFolder()
+        {
+            CreateDirectory("Fonts");
+        }
+
+        #endregion
+
+        #region Scripts
 
         [MenuItem("Tools/Scripts/Others/Helpers")]
         static async void LoadHelperFunctionsScript()
@@ -47,15 +88,15 @@ CreateDirectory("Scripts");
             var contents = await GetContents(url);
             CreateScriptFile("PlayerPrefsX", contents);
         }
-        
+
         [MenuItem("Tools/Scripts/Others/ArdaTween")]
         static async void LoadArdaTweenScript()
         {
             var url = GetGistUrl("8291c7c970dbd00db9037a015f233730");
             var contents = await GetContents(url);
             CreateScriptFile("ArdaTween", contents);
-        }  
-        
+        }
+
         [MenuItem("Tools/Scripts/Others/iTween")]
         static async void LoadiTweenScript()
         {
@@ -95,6 +136,7 @@ CreateDirectory("Scripts");
             var contents = await GetContents(url);
             CreateScriptFile("Vibration", contents);
         }
+
         [MenuItem("Tools/Scripts/Others/Input Manager")]
         static async void LoadInputManagerScript()
         {
@@ -102,14 +144,15 @@ CreateDirectory("Scripts");
             var contents = await GetContents(url);
             CreateScriptFile("InputManager", contents);
         }
-        
+
         [MenuItem("Tools/Scripts/Others/Shake Camera")]
         static async void LoadShakeCameraScript()
         {
             var url = GetGistUrl("2ef7a75196218a762385628395b8b6c7");
             var contents = await GetContents(url);
             CreateScriptFile("ShakeCamera", contents);
-        } 
+        }
+
         [MenuItem("Tools/Scripts/Others/Object Pool")]
         static async void LoadObjectPoolScript()
         {
@@ -117,6 +160,7 @@ CreateDirectory("Scripts");
             var contents = await GetContents(url);
             CreateScriptFile("ObjectPool", contents);
         }
+
         [MenuItem("Tools/Scripts/Others/Dragger")]
         static async void LoadDraggerScript()
         {
@@ -124,49 +168,49 @@ CreateDirectory("Scripts");
             var contents = await GetContents(url);
             CreateScriptFile("Dragger", contents);
         }
-        
+
         [MenuItem("Tools/Scripts/Others/Vibration and Native")]
         static async void LoadVibrationAndNativeScripts()
         {
-            var url = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Vibration","cs");
+            var url = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0", "Vibration", "cs");
             var contents = await GetContents(url);
             CreateScriptFile("Vibration", contents);
-            
-            var url2 = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0","Native","cs");
+
+            var url2 = GetGistUrl("2042c86dfbe7e511cd00dbe6317b81f0", "Native", "cs");
             var contents2 = await GetContents(url2);
             CreateScriptFile("Native", contents2);
         }
-       
+
         [MenuItem("Tools/Scripts/Others/Serializable Dictionary and KeyValuePair")]
         static async void LoadSerializableDictionaryAndKeyValuePairScripts()
         {
-            var url = GetGistUrl("eea761fee785b5072a6559a8146f6199","DictionaryUnity","cs");
+            var url = GetGistUrl("eea761fee785b5072a6559a8146f6199", "DictionaryUnity", "cs");
             var contents = await GetContents(url);
             CreateScriptFile("DictionaryUnity", contents);
-            
-            var url2 = GetGistUrl("eea761fee785b5072a6559a8146f6199","KeyValuePairUnity","cs");
+
+            var url2 = GetGistUrl("eea761fee785b5072a6559a8146f6199", "KeyValuePairUnity", "cs");
             var contents2 = await GetContents(url2);
             CreateScriptFile("KeyValuePairUnity", contents2);
         }
-        
+
         [MenuItem("Tools/Scripts/Others/Page Controller")]
         static async void LoadPageControllerScripts()
         {
-            var url = GetGistUrl("c818f069c8bf08de05b0de2fd81b5b9f","PageController","cs");
+            var url = GetGistUrl("c818f069c8bf08de05b0de2fd81b5b9f", "PageController", "cs");
             var contents = await GetContents(url);
             CreateScriptFile("PageController", contents);
-            
-            var url2 = GetGistUrl("c818f069c8bf08de05b0de2fd81b5b9f","Pages","cs");
+
+            var url2 = GetGistUrl("c818f069c8bf08de05b0de2fd81b5b9f", "Pages", "cs");
             var contents2 = await GetContents(url2);
             CreateScriptFile("Pages", contents2);
-            
+
             LoadListExtensionsScript();
             LoadSerializableDictionaryAndKeyValuePairScripts();
         }
-        
-#endregion
 
-#region Extension Methods
+        #endregion
+
+        #region Extension Methods
 
         [MenuItem("Tools/Scripts/Extension Methods/All Extensions")]
         static void LoadAllExtensionsScripts()
@@ -218,7 +262,7 @@ CreateDirectory("Scripts");
             var contents = await GetContents(url);
             CreateScriptFile("ImageExtensions", contents, "Extensions");
         }
-        
+
         [MenuItem("Tools/Scripts/Extension Methods/List Extensions")]
         static async void LoadListExtensionsScript()
         {
@@ -227,38 +271,40 @@ CreateDirectory("Scripts");
             CreateScriptFile("ListExtensions", contents, "Extensions");
         }
 
-#endregion
-        
-       
+        #endregion
 
-#region Helpers
+
+        #region Helpers
+
         static string GetGistUrl(string id, string user = "ardaerbaharli") =>
             $"https://gist.github.com/{user}/{id}/raw";
-        static string GetGistUrl(string id, string scriptName, string fileExtension,string user = "ardaerbaharli") =>
+
+        static string GetGistUrl(string id, string scriptName, string fileExtension, string user = "ardaerbaharli") =>
             $"https://gist.github.com/{user}/{id}/raw/{scriptName}.{fileExtension}";
 
         static async Task<string> GetContents(string url)
         {
-            using (var client = new HttpClient()){
-            var response = await client.GetAsync(url);
-            var content = await response.Content.ReadAsStringAsync();
-            return content;
-        }
-
-        static void CreateDirectory(string directoryName)
-        {
-            var path = Path.Combine(Application.dataPath, directoryName);
-            if (!Directory.Exists(path))
+            using (var client = new HttpClient())
             {
-                Directory.CreateDirectory(path);
+                var response = await client.GetAsync(url);
+                var content = await response.Content.ReadAsStringAsync();
+                return content;
+            }
+
+            static void CreateDirectory(string directoryName)
+            {
+                var path = Path.Combine(dataPath, directoryName);
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
             }
         }
 
-}
         static void CreateScriptFile(string fileName, string contents)
         {
             var path = Combine(dataPath, "Scripts");
-                CreateDirectory(path);
+            CreateDirectory(path);
 
             path = Combine(path, $"{fileName}.cs");
             File.WriteAllText(path, contents);
@@ -268,7 +314,7 @@ CreateDirectory("Scripts");
         static void CreateScriptFile(string fileName, string contents, params string[] dir)
         {
             var root = Combine(dataPath, "Scripts");
-                            CreateDirectory(path);
+            CreateDirectory(root);
 
 
             foreach (var newDirectory in dir)
@@ -281,11 +327,10 @@ CreateDirectory("Scripts");
             File.WriteAllText(path, contents);
             Refresh();
         }
-        
-#endregion
 
-#region UI Elements
-        
+        #endregion
+
+        #region UI Elements
 
         [MenuItem("Tools/Scripts/UI Elements/Toggle Switch")]
         static async void LoadToggleSwitchScript()
@@ -293,19 +338,20 @@ CreateDirectory("Scripts");
             var url = GetGistUrl("ca1b74784200f8991a559cbac7f36df0");
             var contents = await GetContents(url);
             CreateScriptFile("ToggleSwitch", contents);
-        }  
+        }
+
         [MenuItem("Tools/Scripts/UI Elements/Range Slider")]
         static async void LoadRangeSliderScript()
         {
-            var url = GetGistUrl("592ce9f3b18c4cbba9fd6b2961801174","RangeSlider","cs");
+            var url = GetGistUrl("592ce9f3b18c4cbba9fd6b2961801174", "RangeSlider", "cs");
             var contents = await GetContents(url);
             CreateScriptFile("RangeSlider", contents);
-            
-            var url2 = GetGistUrl("592ce9f3b18c4cbba9fd6b2961801174","SliderHandle","cs");
+
+            var url2 = GetGistUrl("592ce9f3b18c4cbba9fd6b2961801174", "SliderHandle", "cs");
             var contents2 = await GetContents(url2);
             CreateScriptFile("SliderHandle", contents2);
         }
-        
+
         [MenuItem("Tools/Scripts/UI Elements/Display FPS")]
         static async void LoadDisplayFPSScript()
         {
@@ -321,9 +367,8 @@ CreateDirectory("Scripts");
             var contents = await GetContents(url);
             CreateScriptFile("LoadingScreenManager", contents);
         }
-#endregion
 
-
+        #endregion
     }
 }
 #endif
