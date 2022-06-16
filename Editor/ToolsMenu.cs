@@ -298,9 +298,10 @@ namespace Editor
             {
                 Directory.CreateDirectory(path);
             }
-            
+
             Refresh();
         }
+
         static void CreateScriptFile(string fileName, string contents)
         {
             var path = Combine(dataPath, "Scripts");
@@ -338,6 +339,14 @@ namespace Editor
             var url = GetGistUrl("ca1b74784200f8991a559cbac7f36df0");
             var contents = await GetContents(url);
             CreateScriptFile("ToggleSwitch", contents);
+        }
+
+        [MenuItem("Tools/Scripts/UI Elements/Double Switch")]
+        static async void LoadDoubleSwitchScript()
+        {
+            var url = GetGistUrl("be2b70be410192606be85cdd6592d77d");
+            var contents = await GetContents(url);
+            CreateScriptFile("DoubleSwitch", contents);
         }
 
         [MenuItem("Tools/Scripts/UI Elements/Range Slider")]
